@@ -107,4 +107,30 @@ public class MathExam {
         System.out.println("최소 병력은: " + result);
         return result;
     }
+
+    public String exam120839(String rsp) throws Exception{
+        String answer = "";
+
+        if(rsp == null){
+            throw new Exception(String.format("rsp는 null이 아니어야 합니다."));
+        }
+        if(rsp.length() <= 0 || rsp.length() > 100){
+            throw new Exception(String.format("rsp[%s}는 0~100 이어야 합니다.", rsp));
+        }
+
+        for(int i=0; i<rsp.length(); i++) {
+            char ch = rsp.charAt(i);
+            if (ch == '2') {
+                answer += "0";
+            } else if (ch == '0') {
+                answer += "5";
+            } else if (ch == '5') {
+                answer += "2";
+            } else {
+                throw new Exception(String.format("rsp[%s] 문자는 2, 0, 5중에 하나입니다."));
+            }
+        }
+        return answer;
+    }
+
 }
