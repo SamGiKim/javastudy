@@ -133,4 +133,26 @@ public class MathExam {
         return answer;
     }
 
+    public int[] exam120824(int[] num_list) throws Exception{
+        if( num_list == null){
+            throw new Exception(String.format("num_list는 null이 아니어야 합니다."));
+        }
+        if(num_list.length <= 0 || num_list.length > 100){
+            throw new Exception(String.format("num_list배열의 길이는 1~100개 이어야 합니다."));
+        }
+
+        int[] result = new int[] {0,0};
+        for(int i=0; i<num_list.length; i++){
+            if(num_list[i] < 0 || num_list[i] > 1000){
+                throw new Exception(String.format("num_list[%d], 값 : %d 의 범위는 0~1000 이어야 합니다.", i, num_list[i]));
+            }
+            if(num_list[i]%2 == 0){
+                result[0] ++;
+            }
+            else {
+                result[1]++;
+            }
+        }
+        return result;
+    }
 }
