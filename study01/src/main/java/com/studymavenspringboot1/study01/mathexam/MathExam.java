@@ -81,4 +81,30 @@ public class MathExam {
         System.out.println("최종가격:" + result);
         return result;
     }
+
+    public int exam120837(int hp) throws Exception{
+        if(hp < 0 || hp > 1000){
+            throw new Exception(String.format("hp는 0~1000이어야 합니다."));
+        }
+
+        int strongant = 5;
+        int jungant = 3;
+        int nomalant = 1;
+        int result = 0;
+
+        while (hp > 0) {
+            if (hp >= 5) {
+                hp -= strongant;
+                result++;
+            } else if (hp <= 4 && hp > 2) {
+                hp -= jungant;
+                result++;
+            } else if (hp <= 2 && hp > 0) {
+                hp -= nomalant;
+                result++;
+            }
+        }
+        System.out.println("최소 병력은: " + result);
+        return result;
+    }
 }

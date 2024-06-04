@@ -73,6 +73,25 @@ public class Exam001Test {
         assertThat(math.exam120818(150000)).isEqualTo(142500);
         assertThat(math.exam120818(580000)).isEqualTo(464000);
     }
+
+    @Test
+    public void exam120837() throws Exception{
+        System.out.println("exam120837");
+        MathExam math = new MathExam();
+
+        //이 부분은 Exception 확인 부분
+        Throwable ex1 = assertThrows(Exception.class, () -> math.exam120837(-1));
+        System.out.println(ex1.toString());
+        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120837(1001));
+        System.out.println(ex2.toString());
+
+        //이 부분은 실제 값과 예상값이 같냐
+        assertThat(math.exam120837(23)).isEqualTo(5);
+        assertThat(math.exam120837(24)).isEqualTo(6);
+        assertThat(math.exam120837(999)).isEqualTo(201);
+    }
+
+
 }
 
 
