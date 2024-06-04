@@ -60,6 +60,19 @@ public class Exam001Test {
         assertThat(math.exam120585(new int[] {180, 128, 140}, 198)).isEqualTo(0);
 
     }
+
+    @Test
+    public void exam120818() throws Exception{
+        MathExam math = new MathExam();
+
+        Throwable ex1 = assertThrows(Exception.class, () -> math.exam120818(9));
+        System.out.println(ex1.toString());
+        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120818(1000001));
+        System.out.println(ex2.toString());
+
+        assertThat(math.exam120818(150000)).isEqualTo(142500);
+        assertThat(math.exam120818(580000)).isEqualTo(464000);
+    }
 }
 
 
