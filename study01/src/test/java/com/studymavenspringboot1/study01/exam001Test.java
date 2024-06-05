@@ -204,4 +204,13 @@ public class Exam001Test {
         int i = sc.nextInt();
         System.out.printf("%x", i);
     }
+
+    @Test
+    public void exam1033(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("");
+        int i = sc.nextInt();
+        System.out.printf("%X", i);
+    }
+    
 }
