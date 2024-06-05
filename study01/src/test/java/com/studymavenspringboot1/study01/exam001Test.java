@@ -256,7 +256,7 @@ public class Exam001Test {
     public void exam1019(){
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
-        String[] input_date = s.split("\\.");
+        String[] input_date = s.split("\\."); // [.]도 가능
 
         int year = Integer.parseInt(input_date[0]);
         int month = Integer.parseInt(input_date[1]);
