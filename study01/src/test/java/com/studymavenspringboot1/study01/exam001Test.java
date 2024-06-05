@@ -220,4 +220,12 @@ public class Exam001Test {
         int octal = Integer.parseInt(s, 8);
         System.out.printf("%d", octal);
     }
+
+    @Test
+    public void exam1035(){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int octal = Integer.parseInt(s, 16);
+        System.out.printf("%o", octal);
+    }
 }
