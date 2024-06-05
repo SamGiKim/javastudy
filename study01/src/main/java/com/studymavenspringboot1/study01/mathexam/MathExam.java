@@ -202,4 +202,6 @@ public class MathExam {
 
         return num1%num2;
     }
+
+
 }

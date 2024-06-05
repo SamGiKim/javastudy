@@ -147,16 +147,44 @@ public class Exam001Test {
     }
 
     @Test
-    public void exam120810() throws Exception{
+    public void exam120810() throws Exception {
         MathExam math = new MathExam();
 
-        Throwable ex1 = assertThrows(Exception.class, () -> math.exam120810(-1,1));
+        Throwable ex1 = assertThrows(Exception.class, () -> math.exam120810(-1, 1));
         System.out.println(ex1.toString());
-        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120810(1,101));
+        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120810(1, 101));
         System.out.println(ex2.toString());
 
-        assertThat(math.exam120810(3,2)).isEqualTo(1);
-        assertThat(math.exam120810(10,5)).isEqualTo(0);
-
+        assertThat(math.exam120810(3, 2)).isEqualTo(1);
+        assertThat(math.exam120810(10, 5)).isEqualTo(0);
     }
+
+    @Test
+    public void numberPrint() throws Exception{
+        int x = 0b1011, y = 0206, z = 0x2A0F;
+        char a ='A', b='B', c='C';
+        long l = 0L;
+
+        double ddd = 1.0/2;
+
+        System.out.println(String.format("10진수: x=%d, y=%d, z=%d", x, y, z));
+        System.out.println(String.format("8진수: x=%o, y=%o, z=%o", x, y, z));
+        System.out.println(String.format("16진수: x=%x, y=%X, z=%x", x, y, z));
+        System.out.println(String.format("char: x=%c, y=%c, z=%c", x, y, z));
+
+        System.out.println(String.format("10진수: a=%d, b=%d, c=%d", (int)a, (int)b, (int)c));
+        System.out.println(String.format("8진수: a=%o, b=%o, c=%o", (int)a, (int)b, (int)c));
+        System.out.println(String.format("16진수: a=%x, b=%X, c=%x", (int)a, (int)b, (int)c));
+        System.out.println(String.format("char: a=%c, b=%c, c=%c", a, b, c));
+
+        System.out.println(ddd);
+    }
+
+    @Test
+    public void exam1731(){
+        System.out.println("special characters");
+        System.out.print("[\\n,\\\",\\\\] is very important.");
+    }
+
+    
 }
