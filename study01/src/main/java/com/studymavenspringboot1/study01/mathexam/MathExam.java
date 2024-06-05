@@ -37,26 +37,26 @@ public class MathExam {
         }
     }
 
-//    public int exam120585(int array[], int height) throws Exception{
-//        if(array == null || array.length <= 0 || array.length > 100){
-//            throw new Exception(String.format("array는 null이 아니고, 길이가 1~100이어야 합니다."));
-//        }
-//        if(height < 1 || height > 200){
-//            throw new Exception(String.format("height는 [%d] 1~200 이어야 합니다.", height));
-//        }
-//        int count=0;
-//        for(int i=0; i<array.length; i++){
-//            if(array[i] <= 0 || array[i] > 200){
-//                throw new Exception(String.format("array[%d] = [%d] 는 1~200 이어야 합니다", i, array[i]));
-//            }
-//
-//            if(array[i] > height){
-//                count++;
-//            }
-//        }
-//
-//        return count;
-//    }
+    public int exam120585(int array[], int height) throws Exception{
+        if(array == null || array.length <= 0 || array.length > 100){
+            throw new Exception(String.format("array는 null이 아니고, 길이가 1~100이어야 합니다."));
+        }
+        if(height < 1 || height > 200){
+            throw new Exception(String.format("height는 [%d] 1~200 이어야 합니다.", height));
+        }
+        int count=0;
+        for(int i=0; i<array.length; i++){
+            if(array[i] <= 0 || array[i] > 200){
+                throw new Exception(String.format("array[%d] = [%d] 는 1~200 이어야 합니다", i, array[i]));
+            }
+
+            if(array[i] > height){
+                count++;
+            }
+        }
+
+        return count;
+    }
 
     public int exam120818(int price) throws Exception {
         int result = 0;
@@ -179,5 +179,27 @@ public class MathExam {
         }
 
         return answer;
+    }
+
+    public int exam120805(int num1, int num2) throws Exception{
+        if(num1 < 0 || num1 > 100){
+            throw new Exception("num1 값은 0~1000 사이의 값 이어야 합니다.");
+        }
+        if(num2 < 0 || num2 > 100){
+            throw new Exception("num2 값은 0~100 사이의 값 이어야 합니다.");
+        }
+
+        return num1/num2;
+    }
+
+    public int exam120810(int num1, int num2) throws Exception{
+        if(num1 <= 0 || num1 > 100){
+            throw new Exception("num1 값은 0~1000 사이의 값 이어야 합니다.");
+        }
+        if(num2 <= 0 || num2 > 100){
+            throw new Exception("num2 값은 0~100 사이의 값 이어야 합니다.");
+        }
+
+        return num1%num2;
     }
 }

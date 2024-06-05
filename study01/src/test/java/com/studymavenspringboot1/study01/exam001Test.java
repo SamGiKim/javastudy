@@ -44,22 +44,22 @@ public class Exam001Test {
         assertThatThrownBy(() -> math.MathTest04(-1,101)).isInstanceOf(Exception.class);
     }
 
-//    @Test
-//    public void exam120585() throws Exception{
-//        System.out.println("exam120585");
-//        MathExam math = new MathExam();
-//
-//        Throwable ex1 = assertThrows(Exception.class, () -> math.exam120585(new int[] {}, 150));
-//        System.out.println(ex1.toString());
-//        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120585(new int[] {150, 201}, 130));
-//        System.out.println(ex2.toString());
-//        Throwable ex3 = assertThrows(Exception.class, () -> math.exam120585(new int[] {150, 180}, 201));
-//        System.out.println(ex3.toString());
-//
-//        assertThat(math.exam120585(new int[] {149, 180, 192, 170}, 167)).isEqualTo(3);
-//        assertThat(math.exam120585(new int[] {180, 128, 140}, 198)).isEqualTo(0);
-//
-//    }
+    @Test
+    public void exam120585() throws Exception{
+        System.out.println("exam120585");
+        MathExam math = new MathExam();
+
+        Throwable ex1 = assertThrows(Exception.class, () -> math.exam120585(new int[] {}, 150));
+        System.out.println(ex1.toString());
+        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120585(new int[] {150, 201}, 130));
+        System.out.println(ex2.toString());
+        Throwable ex3 = assertThrows(Exception.class, () -> math.exam120585(new int[] {150, 180}, 201));
+        System.out.println(ex3.toString());
+
+        assertThat(math.exam120585(new int[] {149, 180, 192, 170}, 167)).isEqualTo(3);
+        assertThat(math.exam120585(new int[] {180, 128, 140}, 198)).isEqualTo(0);
+
+    }
 
     @Test
     public void exam120818() throws Exception{
@@ -131,14 +131,32 @@ public class Exam001Test {
         assertThat(math.exam120899(new int[] {1, 8, 3})).isEqualTo(new int[] {8,1});
         assertThat(math.exam120899(new int[] {9, 10, 11, 8})).isEqualTo(new int[] {11,2});
     }
+
+    @Test
+    public void exam120805() throws Exception{
+        MathExam math = new MathExam();
+
+        Throwable ex1 = assertThrows(Exception.class, () -> math.exam120805(-1,1));
+        System.out.println(ex1.toString());
+        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120805(1,101));
+        System.out.println(ex2.toString());
+
+        assertThat(math.exam120805(10,5)).isEqualTo(2);
+        assertThat(math.exam120805(7,2)).isEqualTo(3);
+
+    }
+
+    @Test
+    public void exam120810() throws Exception{
+        MathExam math = new MathExam();
+
+        Throwable ex1 = assertThrows(Exception.class, () -> math.exam120810(-1,1));
+        System.out.println(ex1.toString());
+        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120810(1,101));
+        System.out.println(ex2.toString());
+
+        assertThat(math.exam120810(3,2)).isEqualTo(1);
+        assertThat(math.exam120810(10,5)).isEqualTo(0);
+
+    }
 }
-
-
-
-
-
-
-
-
-
-
