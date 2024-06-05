@@ -265,4 +265,15 @@ public class Exam001Test {
         String date = String.format("%04d.%02d.%02d", year, month, day);
         System.out.println(date);
     }
+
+    @Test
+    public void exam1024(){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] word = s.split("");
+
+        for(int i=0; i< word.length; i++){
+            System.out.println("'" + word[i] + "'");
+        }
+    }
 }
