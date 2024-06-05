@@ -1,7 +1,6 @@
 package com.studymavenspringboot1.study01;
 
 import com.studymavenspringboot1.study01.mathexam.MathExam;
-import org.apache.tomcat.util.buf.Ascii;
 import org.junit.jupiter.api.Test;
 
 import java.util.Scanner;
@@ -251,5 +250,19 @@ public class Exam001Test {
         long x = sc.nextLong();
         long y = sc.nextLong();
         System.out.println(x+y);
+    }
+
+    @Test
+    public void exam1019(){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] input_date = s.split("\\.");
+
+        int year = Integer.parseInt(input_date[0]);
+        int month = Integer.parseInt(input_date[1]);
+        int day = Integer.parseInt(input_date[2]);
+
+        String date = String.format("%04d.%02d.%02d", year, month, day);
+        System.out.println(date);
     }
 }
