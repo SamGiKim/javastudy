@@ -1,6 +1,7 @@
 package com.studymavenspringboot1.study01;
 
 import com.studymavenspringboot1.study01.mathexam.MathExam;
+import org.apache.tomcat.util.buf.Ascii;
 import org.junit.jupiter.api.Test;
 
 import java.util.Scanner;
@@ -235,5 +236,12 @@ public class Exam001Test {
         char c = sc.next().charAt(0);
         int ascii = (int) c;
         System.out.printf("%d", ascii);
+    }
+
+    @Test
+    public void exam1037(){
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        System.out.println((char) x);
     }
 }
