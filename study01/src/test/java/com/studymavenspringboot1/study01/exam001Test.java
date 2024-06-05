@@ -228,4 +228,12 @@ public class Exam001Test {
         int octal = Integer.parseInt(s, 16);
         System.out.printf("%o", octal);
     }
+
+    @Test
+    public void exam1036(){
+        Scanner sc = new Scanner(System.in);
+        char c = sc.next().charAt(0);
+        int ascii = (int) c;
+        System.out.printf("%d", ascii);
+    }
 }
