@@ -37,26 +37,26 @@ public class MathExam {
         }
     }
 
-    public int exam120585(int array[], int height) throws Exception{
-        if(array == null || array.length <= 0 || array.length > 100){
-            throw new Exception(String.format("array는 null이 아니고, 길이가 1~100이어야 합니다."));
-        }
-        if(height < 1 || height > 200){
-            throw new Exception(String.format("height는 [%d] 1~200 이어야 합니다.", height));
-        }
-        int count=0;
-        for(int i=0; i<array.length; i++){
-            if(array[i] <= 0 || array[i] > 200){
-                throw new Exception(String.format("array[%d] = [%d] 는 1~200 이어야 합니다", i, array[i]));
-            }
-
-            if(array[i] > height){
-                count++;
-            }
-        }
-
-        return count;
-    }
+//    public int exam120585(int array[], int height) throws Exception{
+//        if(array == null || array.length <= 0 || array.length > 100){
+//            throw new Exception(String.format("array는 null이 아니고, 길이가 1~100이어야 합니다."));
+//        }
+//        if(height < 1 || height > 200){
+//            throw new Exception(String.format("height는 [%d] 1~200 이어야 합니다.", height));
+//        }
+//        int count=0;
+//        for(int i=0; i<array.length; i++){
+//            if(array[i] <= 0 || array[i] > 200){
+//                throw new Exception(String.format("array[%d] = [%d] 는 1~200 이어야 합니다", i, array[i]));
+//            }
+//
+//            if(array[i] > height){
+//                count++;
+//            }
+//        }
+//
+//        return count;
+//    }
 
     public int exam120818(int price) throws Exception {
         int result = 0;
@@ -154,5 +154,30 @@ public class MathExam {
             }
         }
         return result;
+    }
+
+    public int[] exam120899(int[] array) throws Exception{
+        if( array == null){
+            throw new Exception(String.format("array는 null이 아니어야 합니다."));
+        }
+        if(array.length <= 0 ||array.length > 100){
+            throw new Exception(String.format("array배열의 길이는 1~100개 이어야 합니다."));
+        }
+
+        for(int i=1; i<array.length; i++){
+            if (array[i] < 0 || array[i] > 1000) {
+                throw new Exception("array배열의 원소는 0~1000 이어야 합니다.");
+            }
+        }
+        int[] answer = new int[2];
+
+        for(int i=0; i<array.length; i++) {
+            if(array[i] > answer[0]) {
+                answer[0] = array[i];
+                answer[1] = i;
+            }
+        }
+
+        return answer;
     }
 }
