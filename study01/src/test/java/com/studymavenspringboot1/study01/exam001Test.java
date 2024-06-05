@@ -212,5 +212,12 @@ public class Exam001Test {
         int i = sc.nextInt();
         System.out.printf("%X", i);
     }
-    
+
+    @Test
+    public void exam1034(){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int octal = Integer.parseInt(s, 8);
+        System.out.printf("%d", octal);
+    }
 }
