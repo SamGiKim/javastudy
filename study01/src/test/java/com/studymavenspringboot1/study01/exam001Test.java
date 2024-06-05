@@ -244,4 +244,12 @@ public class Exam001Test {
         int x = sc.nextInt();
         System.out.println((char) x);
     }
+
+    @Test
+    public void exam1038(){ // 단, 입력되는 정수는 -1073741824 ~ 1073741824 이다
+        Scanner sc = new Scanner(System.in);
+        long x = sc.nextLong();
+        long y = sc.nextLong();
+        System.out.println(x+y);
+    }
 }
