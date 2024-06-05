@@ -197,5 +197,11 @@ public class Exam001Test {
         System.out.printf("%o", i);
     }
 
-    
+    @Test
+    public void exam1032(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("");
+        int i = sc.nextInt();
+        System.out.printf("%x", i);
+    }
 }
