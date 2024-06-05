@@ -2,6 +2,9 @@ package com.studymavenspringboot1.study01;
 
 import com.studymavenspringboot1.study01.mathexam.MathExam;
 import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -184,6 +187,14 @@ public class Exam001Test {
     public void exam1731(){
         System.out.println("special characters");
         System.out.print("[\\n,\\\",\\\\] is very important.");
+    }
+
+    @Test
+    public void exam1031(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("");
+        int i = sc.nextInt();
+        System.out.printf("%o", i);
     }
 
     
