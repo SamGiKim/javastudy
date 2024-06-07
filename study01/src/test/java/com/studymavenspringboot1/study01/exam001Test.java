@@ -317,4 +317,18 @@ public class Exam001Test {
             System.out.println("0");
         }
     }
+
+    @Test
+    public void exam1085(){
+        Scanner sc = new Scanner(System.in);
+
+        long h = sc.nextLong();
+        long b = sc.nextLong();
+        long c = sc.nextLong();
+        long s = sc.nextLong();
+
+        double result = (h*b*c*s) / Math.pow(2, 3) / 1024 / 1024;
+        System.out.printf("%.1f MB", result);
+    }
+
 }
