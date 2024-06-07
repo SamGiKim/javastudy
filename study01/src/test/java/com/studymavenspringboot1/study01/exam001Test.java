@@ -330,5 +330,4 @@ public class Exam001Test {
         double result = (h*b*c*s) / Math.pow(2, 3) / 1024 / 1024;
         System.out.printf("%.1f MB", result);
     }
-
 }
