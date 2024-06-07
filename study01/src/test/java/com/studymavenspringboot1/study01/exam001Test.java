@@ -276,4 +276,19 @@ public class Exam001Test {
             System.out.println("'" + word[i] + "'");
         }
     }
+
+    @Test
+    public void exam1045(){
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        double result = x / y;
+        System.out.printf("%d\n", x+y);
+        System.out.printf("%d\n", x-y);
+        System.out.printf("%d\n", x*y);
+        System.out.printf("%d\n", x/y);
+        System.out.printf("%d\n", x%y);
+        double X = (double) x;
+        System.out.println(String.format("%.2f", X/y));
+    }
 }
