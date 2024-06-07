@@ -291,4 +291,19 @@ public class Exam001Test {
         double X = (double) x;
         System.out.println(String.format("%.2f", X/y));
     }
+
+    @Test
+    public void exam1046(){
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int z = sc.nextInt();
+
+        int result = x + y + z;
+
+        System.out.println(result);
+        System.out.println(String.format("%.1f", (float)result/3));
+    }
+    
+
 }
