@@ -282,7 +282,6 @@ public class Exam001Test {
         Scanner sc = new Scanner(System.in);
         int x = sc.nextInt();
         int y = sc.nextInt();
-        double result = x / y;
         System.out.printf("%d\n", x+y);
         System.out.printf("%d\n", x-y);
         System.out.printf("%d\n", x*y);
@@ -304,6 +303,18 @@ public class Exam001Test {
         System.out.println(result);
         System.out.println(String.format("%.1f", (float)result/3));
     }
-    
 
+    @Test
+    public void exam1058() {
+        Scanner sc = new Scanner(System.in);
+
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+
+        if (x == 0 && y == 0) {
+            System.out.println("1");
+        } else {
+            System.out.println("0");
+        }
+    }
 }
