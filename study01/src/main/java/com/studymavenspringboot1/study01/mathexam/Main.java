@@ -1,6 +1,7 @@
 package com.studymavenspringboot1.study01.mathexam;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -8,7 +9,9 @@ public class Main {
     public static void main(String[] args) {
         try{
            //exam1566();
-            exam1173();
+            //exam1173();
+            //exam1218();
+            exam1205();
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -103,13 +106,15 @@ public class Main {
         double result5_2 = Math.pow(b,a);
 
         double array[] = {result1, result2, result2_1, result3, result4, result4_2, result5, result5_2 };
-        double max = array[0];
-        for(int i=0; i< array.length; i++){
-            if(max < array[i]){
-                max = array[i];
-            }
-        }
-        System.out.printf("%.6f", max);
+//        double max = array[0];
+//        for(int i=0; i< array.length; i++){
+//            if(max < array[i]){
+//                max = array[i];
+//            }
+//        }
+        Arrays.sort(array);
+//        System.out.printf("%.6f", max);
+        System.out.printf("%.6f", array[array.length-1]);
     }
 
     public static void exam1214(){
@@ -130,5 +135,26 @@ public class Main {
             }
         }
         System.out.println(lastday);
+    }
+
+    public static void exam1218() {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        if (a + b > c) {
+            if (a == b && b == c) {
+                System.out.println("정삼각형");
+            } else if (a == b || b == c) {
+                System.out.println("이등변삼각형");
+            } else if (Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2)) {
+                System.out.println("직각삼각형");
+            } else {
+                System.out.println("삼각형");
+            }
+        } else {
+            System.out.println("삼각형아님");
+        }
     }
 }
