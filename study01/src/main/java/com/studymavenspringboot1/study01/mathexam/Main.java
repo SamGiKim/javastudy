@@ -87,4 +87,28 @@ public class Main {
             System.out.println("OH MY GOD");
         }
     }
+
+    public static void exam1205(){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int result1 = a+b;
+        int result2 = a-b;
+        int result2_1 = b-a;
+        int result3 = a*b;
+        int result4 = a/b;
+        int result4_2 = b/a;
+        double result5 = Math.pow(a,b);
+        double result5_2 = Math.pow(b,a);
+
+        double array[] = {result1, result2, result2_1, result3, result4, result4_2, result5, result5_2 };
+        double max = array[0];
+        for(int i=0; i< array.length; i++){
+            if(max < array[i]){
+                max = array[i];
+            }
+        }
+        System.out.printf("%.6f", max);
+    }
 }
