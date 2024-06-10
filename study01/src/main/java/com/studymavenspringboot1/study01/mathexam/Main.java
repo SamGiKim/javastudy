@@ -157,4 +157,35 @@ public class Main {
             System.out.println("삼각형아님");
         }
     }
+
+    public static void exam1226(){
+        Scanner scan = new Scanner(System.in);
+        int[] arr = new int[7];
+        int n;
+        int correct = 0;
+        int bonus_correct = 0;
+        String s = "";
+
+        for(int i=0;i<7;i++){
+            arr[i] = scan.nextInt();
+        }
+
+        for(int i=0;i<6;i++){
+            n = scan.nextInt();
+            for(int j=0;j<7;j++){
+                if(arr[j]==n){
+                    if(j==6) bonus_correct++;
+                    else correct++;
+                }
+            }
+        }
+
+        if(correct<=2) s = "0";
+        else if(correct==3) s = "5";
+        else if(correct==4) s = "4";
+        else if(correct==5&&bonus_correct==0) s = "3";
+        else if(correct==5&&bonus_correct==1) s = "2";
+        else if(correct==6) s = "1";
+        System.out.printf(s);
+    }
 }
