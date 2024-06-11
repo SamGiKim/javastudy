@@ -11,7 +11,8 @@ public class Main {
            //exam1566();
             //exam1173();
             //exam1218();
-            exam1205();
+            //exam1205();
+            exam3015();
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -187,5 +188,32 @@ public class Main {
         else if(correct==5&&bonus_correct==1) s = "2";
         else if(correct==6) s = "1";
         System.out.printf(s);
+    }
+
+    public static void exam3015(){
+        Scanner sc = new Scanner(System.in);
+        int dataCount = sc.nextInt();
+        int displayCount = sc.nextInt();
+
+        Student[] students = new Student[dataCount];
+        for(int i=0; i<dataCount; i++){
+            Student student = new Student();
+            student.name = sc.next();
+            student.score = sc.nextInt();
+            students[i] = student;
+        }
+
+        for(int i=students.length -1; i>0; i--){
+            for(int j =0; j<i; j++){
+                if(students[j].score < students[j+1].score){
+                    Student lowScore = students[j];
+                    students[j] = students[j+1];
+                    students[j+1] = lowScore;
+                }
+            }
+        }
+        for(int i=0; i<displayCount; i++){
+            System.out.println(students[i].name);
+        }
     }
 }
