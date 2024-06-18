@@ -68,8 +68,14 @@ public class AccountService {
         if ( account == null ) {
             return false;
         }
-        account.setCurt(account.getCurt() + money);
-        return true;
+        if( money > 0) {
+            account.setCurt(account.getCurt() + money);
+            return true;
+        }
+        else {
+            System.out.println("입금 금액은 0원 이상이어야 합니다.");
+            return false;
+        }
     }
 
     /**
