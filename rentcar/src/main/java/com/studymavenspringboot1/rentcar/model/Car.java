@@ -1,5 +1,9 @@
 package com.studymavenspringboot1.rentcar.model;
 
+import lombok.Getter;
+
+@Getter
+
 public class Car implements Vehicle {
     private Long id;
     private String company;
@@ -10,4 +14,5 @@ public class Car implements Vehicle {
     private int totalKm;
     private String factoryNumber;
     private String registNumber;
+    private VehicleStatus status;
 }

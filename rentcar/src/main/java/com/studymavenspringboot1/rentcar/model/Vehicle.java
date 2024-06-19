@@ -7,14 +7,8 @@ public interface Vehicle {
     public int getMakeYear();
     public VehicleType getType();
     public String getColor();
-    public int getTotalKM();
+    public int getTotalKm();
     public String getFactoryNumber();
     public String getRegistNumber();
     public VehicleStatus getStatus();
-//    public String getDriver();
-//    public String reserve();
-//    public String cancel();
-//    public String rentVehicle();
-//    public String returnVehicle();
-
 }
