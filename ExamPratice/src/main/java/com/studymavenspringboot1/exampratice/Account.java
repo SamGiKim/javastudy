@@ -5,11 +5,7 @@ public class Account {
     private String bankNumber;
     private int curt;
 
-    public Account() {
-        this.name = getName();
-        this.bankNumber = getBankNumber();
-        this.curt = getCurt();
-    }
+    public Account() {}
 
     public String getName() {
         return name;
