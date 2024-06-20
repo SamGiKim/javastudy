@@ -73,7 +73,7 @@ public class AccountService {
             return true;
         }
         else {
-            System.out.println("입금 금액은 0원 이상이어야 합니다.");
+            System.out.println("입금 금액은 0원보다 커야 합니다.");
             return false;
         }
     }
