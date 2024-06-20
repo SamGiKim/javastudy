@@ -91,7 +91,7 @@ public class AccountService {
         }
         if ( account.getCurt() >= money ) {
             if( money > 0) {
-                account.setCurt(account.getCurt() + money);
+                account.setCurt(account.getCurt() - money);
                 return true;
             }
             else {
