@@ -90,8 +90,14 @@ public class AccountService {
             return false;
         }
         if ( account.getCurt() >= money ) {
-            account.setCurt(account.getCurt() - money);
-            return true;
+            if( money > 0) {
+                account.setCurt(account.getCurt() + money);
+                return true;
+            }
+            else {
+                System.out.println("출금 금액은 0원보다 커야 합니다.");
+                return false;
+            }
         } else {
             return false;
         }

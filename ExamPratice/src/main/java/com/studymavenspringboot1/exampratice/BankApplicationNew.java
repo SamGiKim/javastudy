@@ -59,7 +59,7 @@ public class BankApplicationNew {
         if ( this.accountService.withdraw(result.getBankNumber(), result.getCurt()) ) {
             System.out.println("결과: 출금이 성공되었습니다.");
         } else {
-            System.out.println("에러: 출금이 안되었습니다.");
+            System.out.println("에러: 출금에 실패했습니다.");
         }
     }
 
