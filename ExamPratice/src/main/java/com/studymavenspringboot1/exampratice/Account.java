@@ -9,6 +9,15 @@ public class Account {
     private String name;
     private String bankNumber;
     private int current;
+	
+	/**
+	 * 계좌 (Account) 기본 생성자
+	 */
+    public Account() {
+        this.name = "";
+        this.bankNumber = "";
+        this.current = 0;
+    }
 
     /**
      * 계좌 (Account) 를 생성하는 사용자 정의 생성자
@@ -29,6 +38,6 @@ public class Account {
     @Override
     public String toString() {
         return String.format("Account{name='%s', bankNumber='%s', current=%d}"
-                , this.name, this.bankNumber, this.current);
+            , this.name, this.bankNumber, this.current);
     }
 }
