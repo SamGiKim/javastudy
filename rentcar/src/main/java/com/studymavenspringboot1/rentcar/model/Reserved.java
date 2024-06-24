@@ -20,7 +20,7 @@ public class Reserved {
         return false;
     }
 
-    public boolean reserveVehicle(Vehicle vehicle, Member member, Date startDate, String startPoint, Date endDate, String endPoint, int money, Date reserveDate, Date untilDate) {
+    public boolean reserveVehicle(Vehicle vehicle, Member member, Date startDate, String startPoint, Date endDate, String endPoint, int money, Date reserveDate) {
         return false;
     }
 
