@@ -16,15 +16,15 @@ public class Reserved {
     private Date cancelDate;
     private RentStatus status;
 
-    public void reserveVehicle(Vehicle vehicle, Member member, Date startDate, String startPoint, Date endDate, String endPoint, int money, Date reserveDate, Date untilDate, RentStatus status) {
-
+    public boolean reserveVehicle(Vehicle vehicle, Member member, Date startDate, String startPoint, Date endDate, String endPoint, int money, Date reserveDate, Date untilDate, RentStatus status) {
+        return false;
     }
 
-    public void reserveVehicle(Vehicle vehicle, Member member, Date startDate, String startPoint, Date endDate, String endPoint, int money, Date reserveDate, Date untilDate) {
-
+    public boolean reserveVehicle(Vehicle vehicle, Member member, Date startDate, String startPoint, Date endDate, String endPoint, int money, Date reserveDate, Date untilDate) {
+        return false;
     }
 
-    public void cancelVehicle(Vehicle vehicle, Member member, Date cancelDate){
-
+    public boolean cancelVehicle(Vehicle vehicle, Member member, Date cancelDate){
+        return false;
     }
 }
