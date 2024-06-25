@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class BankApplication {
     private AccountService accountService = new AccountServiceImpl();
 
-    public AccountService getAccountService(){
+    public AccountService getAccountService() {
         return this.accountService;
     }
 
@@ -101,7 +101,7 @@ public class BankApplication {
     }
 
     public static void main(String[] args) {
-        if ( args.length < 2 ) {
+        if (args.length < 2) {
             System.out.println("Execute BankApplication (-j/-t) filename");
             return;
         }

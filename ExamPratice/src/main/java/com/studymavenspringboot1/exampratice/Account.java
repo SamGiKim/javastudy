@@ -21,9 +21,10 @@ public class Account {
 
     /**
      * 계좌 (Account) 를 생성하는 사용자 정의 생성자
-     * @param name : 계좌 대표명
+     *
+     * @param name       : 계좌 대표명
      * @param bankNumber : 계좌번호
-     * @param current : 현재 금액
+     * @param current    : 현재 금액
      */
     public Account(String name, String bankNumber, int current) {
         this.name = name;
@@ -33,6 +34,7 @@ public class Account {
 
     /**
      * 계좌(Account) 정보(계좌대표명, 계좌번호, 현재금액)를 String 으로 리턴한다.
+     *
      * @return
      */
     @Override

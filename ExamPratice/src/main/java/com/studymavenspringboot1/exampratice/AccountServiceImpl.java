@@ -3,16 +3,16 @@ package com.studymavenspringboot1.exampratice;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountServiceImpl implements AccountService{
+public class AccountServiceImpl implements AccountService {
     private AccountRepository accountRepository;
 
-    public void setinitRepository(String arg1, String fileName) throws Exception{
-        if ( "-j".equals(arg1) ) {
+    public void setinitRepository(String arg1, String fileName) throws Exception {
+        if ("-j".equals(arg1)) {
             accountRepository = new AccountJSONRepository(fileName);
-        } else if ( "-t".equals(arg1) ) {
+        } else if ("-t".equals(arg1)) {
             accountRepository = new AccountFileRepository(fileName);
         } else {
-           throw new Exception("Execute BankApplication -j/-t filename");
+            throw new Exception("Execute BankApplication -j/-t filename");
         }
     }
 
@@ -24,6 +24,7 @@ public class AccountServiceImpl implements AccountService{
     /**
      * 계좌 배열 길이를 int 형으로 리턴한다.
      * return Accounts array size (int)
+     *
      * @return : Accounts array size (int)
      */
     public int size() {
@@ -40,9 +41,10 @@ public class AccountServiceImpl implements AccountService{
 
     /**
      * 계좌(Account) 배열에 계좌정보(Account) 를 추가한다.
-     * @param name : 계좌대표이름
+     *
+     * @param name        : 계좌대표이름
      * @param bankAccount : 계좌번호
-     * @param money : 초기금액
+     * @param money       : 초기금액
      * @return : true or false
      */
     public boolean addAccount(String name, String bankAccount, int money) {
@@ -51,6 +53,7 @@ public class AccountServiceImpl implements AccountService{
 
     /**
      * 계좌(Account) 배열에 계좌정보(Account) 를 추가한다.
+     *
      * @param account : 계좌정보 Account 객체
      * @return : true or false
      */
@@ -61,6 +64,7 @@ public class AccountServiceImpl implements AccountService{
     /**
      * 계좌 배열을 리턴한다.
      * return Accounts Array List
+     *
      * @return
      */
     public List<Account> getAllAccount() {
@@ -69,13 +73,14 @@ public class AccountServiceImpl implements AccountService{
 
     /**
      * 계좌번호로 찾은 계좌에 예금을 한다.
+     *
      * @param bankAccount : 계좌번호
-     * @param money : 예금액
+     * @param money       : 예금액
      * @return : 성공일때 true, 실패하면 false
      */
     public boolean deposit(String bankAccount, int money) {
         Account account = this.findAccountByNumber(bankAccount);
-        if ( account == null ) {
+        if (account == null) {
             return false;
         }
         account.setCurrent(account.getCurrent() + money);
@@ -84,16 +89,17 @@ public class AccountServiceImpl implements AccountService{
 
     /**
      * 계좌번호로 찾은 계좌에 출금을 한다. 현재금액보다 출금액은 커야 한다.
+     *
      * @param bankAccount : 계좌번호
-     * @param money : 출금액
+     * @param money       : 출금액
      * @return : 성공일때 true, 실패하면 false
      */
     public boolean withdraw(String bankAccount, int money) {
         Account account = this.findAccountByNumber(bankAccount);
-        if ( account == null ) {
+        if (account == null) {
             return false;
         }
-        if ( account.getCurrent() >= money ) {
+        if (account.getCurrent() >= money) {
             account.setCurrent(account.getCurrent() - money);
             return true;
         } else {
@@ -103,15 +109,16 @@ public class AccountServiceImpl implements AccountService{
 
     /**
      * 계좌번호로 계좌(Account)를 찾아서 리턴한다. 계좌번호가 없으면 null 을 리턴한다.
+     *
      * @param bankAccount : 찾을 계좌번호
      * @return : Account 객체, 찾지 못하면 null
      */
-    public Account findAccountByNumber( String bankAccount ) {
-        if ( bankAccount == null || bankAccount.isEmpty() ) {
+    public Account findAccountByNumber(String bankAccount) {
+        if (bankAccount == null || bankAccount.isEmpty()) {
             return null;
         }
-        for ( Account account : accountList ) {
-            if ( bankAccount.equals(account.getBankNumber()) ) {
+        for (Account account : accountList) {
+            if (bankAccount.equals(account.getBankNumber())) {
                 return account;
             }
         }
@@ -121,6 +128,7 @@ public class AccountServiceImpl implements AccountService{
     public void loadData(List<Account> list) throws Exception {
         accountRepository.loadJson(list);
     }
+
     public void saveData(List<Account> list) throws Exception {
         accountRepository.saveJson(list);
     }
