@@ -3,11 +3,14 @@ package com.studymavenspringboot1.exampratice;
 import java.util.Scanner;
 
 public class BankApplication {
-    private AccountService accountService = new AccountService();
-    private AccountRepository accountRepository;
+    private AccountService accountService = new AccountServiceImpl();
 
-    public BankApplication(AccountRepository repository) {
-        this.accountRepository =  repository;
+    public AccountService getAccountService(){
+        return this.accountService;
+    }
+
+    public BankApplication() {
+
     }
 
     private void printHeader() {
@@ -90,36 +93,27 @@ public class BankApplication {
     }
 
     private void loadFile() throws Exception {
-        accountRepository.loadJson(accountService.getAllAccount());
+        accountService.loadData(accountService.getAllAccount());
     }
 
     private void saveFile() throws Exception {
-        accountRepository.saveJson(accountService.getAllAccount());
+        accountService.saveData(accountService.getAllAccount());
     }
 
     public static void main(String[] args) {
         if ( args.length < 2 ) {
-            System.out.println("Execute BankApplication -j/-t filename");
+            System.out.println("Execute BankApplication (-j/-t) filename");
             return;
         }
-        String fileName = args[1];
-        AccountRepository repository;
-        if ( "-j".equals(args[0]) ) {
-            repository = new AccountJSONRepository(fileName);
-        } else if ( "-t".equals(args[0]) ) {
-            repository = new AccountFileRepository(fileName);
-        } else {
-            System.out.println("Execute BankApplication -j/-t filename");
-            return;
-        }
-        BankApplication bapp = new BankApplication(repository);
+        BankApplication bapp = new BankApplication();
         Scanner input = new Scanner(System.in);
         boolean run = true;
 
         try {
+            bapp.getAccountService().setinitRepository(args[0], args[1]);
             bapp.loadFile();
         } catch (Exception e) {
-            throw new RuntimeException("File Open Error !");
+            throw new RuntimeException("Error : " + e.getMessage());
         }
         while (run) {
             try {

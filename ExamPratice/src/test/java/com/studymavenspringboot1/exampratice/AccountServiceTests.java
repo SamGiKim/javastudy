@@ -1,12 +1,20 @@
 package com.studymavenspringboot1.exampratice;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class AccountServiceTests {
+    AccountService accountService;
+
+    @BeforeEach
+    public void initTest(){
+        accountService = new AccountServiceImpl();
+    }
+
     @Test
     public void addAccountTest() {
-        AccountService accountService = new AccountService();
+//        AccountService accountService = new AccountServiceImpl();
 
         accountService.clear();
         accountService.addAccount("홍길동", "111-111", 20000);
@@ -21,7 +29,7 @@ public class AccountServiceTests {
 
     @Test
     public void depositTest() {
-        AccountService accountService = new AccountService();
+//        AccountService accountService = new AccountServiceImpl();
         accountService.addAccount("홍길동", "111-111", 20000);
         accountService.addAccount("이순신", "222-222", 30000);
         assertThat(accountService.size()).isEqualTo(2);
@@ -39,7 +47,7 @@ public class AccountServiceTests {
 
     @Test
     public void withdrawTest() {
-        AccountService accountService = new AccountService();
+//        AccountService accountService = new AccountServiceImpl();
         accountService.addAccount("홍길동", "333-333", 40000);
         assertThat(accountService.size()).isEqualTo(1);
 
