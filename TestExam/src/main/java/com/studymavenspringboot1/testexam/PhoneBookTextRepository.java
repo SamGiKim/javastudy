@@ -39,7 +39,7 @@ public class PhoneBookTextRepository implements IPhoneBookRepository<IPhoneBook>
         if (listData == null || listData.size() <= 0) {
             return false;
         }
-        if(fileName == null || fileName.isEmpty()){
+        if (fileName == null || fileName.isEmpty()) {
             return false;
         }
         FileOutputStream fileOut = new FileOutputStream(fileName);
@@ -62,7 +62,7 @@ public class PhoneBookTextRepository implements IPhoneBookRepository<IPhoneBook>
         BufferedReader inFile = new BufferedReader(new FileReader(file));
         String sLine = null;
         listData.clear();
-        while ((sLine = inFile.readLine()) != null){
+        while ((sLine = inFile.readLine()) != null) {
             IPhoneBook object = this.getObjectFromText(sLine);
             listData.add(object);
         }

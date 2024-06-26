@@ -29,5 +29,5 @@ public interface IPhoneBookService<T> {
 
     void loadData() throws Exception;
 
-    void     saveData() throws Exception;
+    void saveData() throws Exception;
 }
