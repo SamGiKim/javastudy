@@ -27,7 +27,7 @@ public interface IPhoneBookService<T> {
 
     List<T> getListFromEmail(String findEmail);
 
-    boolean loadData(List<IPhoneBook> list) throws Exception;
+    void loadData() throws Exception;
 
-    boolean saveData(List<IPhoneBook> list) throws Exception;
+    void     saveData() throws Exception;
 }
