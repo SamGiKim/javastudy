@@ -2,6 +2,7 @@ package com.studymavenspringboot1.testexam;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PhoneBookServiceImpl implements IPhoneBookService<IPhoneBook> {
     private List<IPhoneBook> list = new ArrayList<>();
@@ -138,46 +139,30 @@ public class PhoneBookServiceImpl implements IPhoneBookService<IPhoneBook> {
 
     @Override
     public List<IPhoneBook> getListFromName(String findName) {
-        List<IPhoneBook> findArr = new ArrayList<>();
-        for (IPhoneBook phoneBook : this.list) {
-            if (phoneBook.getName().contains(findName)) {
-                findArr.add(phoneBook);
-            }
-        }
-        return findArr;
+        return this.list.stream()
+                .filter(phoneBook -> phoneBook.getName().contains(findName))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<IPhoneBook> getListFromGroup(EPhoneGroup phoneGroup) {
-        List<IPhoneBook> findArr = new ArrayList<>();
-        for (IPhoneBook phoneBook : this.list) {
-            if (phoneGroup.equals(phoneBook.getGroup())) {
-                findArr.add(phoneBook);
-            }
-        }
-        return findArr;
+    public List<IPhoneBook> getListFromGroup(EPhoneGroup findGroup) {
+        return this.list.stream()
+                .filter(phoneBook -> findGroup.equals(phoneBook.getGroup()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<IPhoneBook> getListFromPhoneNumber(String findPhone) {
-        List<IPhoneBook> findArr = new ArrayList<>();
-        for (IPhoneBook phoneBook : this.list) {
-            if (phoneBook.getPhoneNumber().contains(findPhone)) {
-                findArr.add(phoneBook);
-            }
-        }
-        return findArr;
+        return this.list.stream()
+                .filter(phoneBook -> phoneBook.getPhoneNumber().contains(findPhone))
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<IPhoneBook> getListFromEmail(String findEmail) {
-        List<IPhoneBook> findArr = new ArrayList<>();
-        for (IPhoneBook phoneBook : this.list) {
-            if (phoneBook.getEmail().contains(findEmail)) {
-                findArr.add(phoneBook);
-            }
-        }
-        return findArr;
+        return this.list.stream()
+                .filter(phoneBook -> phoneBook.getEmail().contains(findEmail))
+                .collect(Collectors.toList());
     }
 
     @Override
