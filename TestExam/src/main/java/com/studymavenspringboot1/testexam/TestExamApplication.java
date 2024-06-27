@@ -51,11 +51,11 @@ public class TestExamApplication {
                         run = false;
                         break;
                     default:
-                        System.out.println("!!! 잘못된 입력입니다. !!!");
+                        System.out.println("!!! 1~9사이의 숫자를 입력해주세요. !!!");
                         break;
                 }
             } catch (Exception ex) {
-                ex.printStackTrace();
+                System.out.println("!!! 1~9사이의 숫자를 입력해주세요. !!!");
             }
         }
     }
