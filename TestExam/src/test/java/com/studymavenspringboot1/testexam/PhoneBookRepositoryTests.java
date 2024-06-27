@@ -1,5 +1,6 @@
 package com.studymavenspringboot1.testexam;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Test;
@@ -35,9 +36,10 @@ public class PhoneBookRepositoryTests {
         JSONObject jobject = repository.getJsonFromObject(phoneBook2);
         assertThat((Long) jobject.get("id")).isEqualTo(88L);
         assertThat((String) jobject.get("name")).isEqualTo("김준혁");
-        assertThat((EPhoneGroup) jobject.get("group")).isEqualTo(EPhoneGroup.Hobbies);
+        assertThat((String) jobject.get("group")).isEqualTo("Hobbies");
         assertThat((String) jobject.get("phoneNumber")).isEqualTo("111-222");
         assertThat((String) jobject.get("email")).isEqualTo("dfgad@naver.com");
+        assertThat(jobject.toJSONString()).isEqualTo("{\"phoneNumber\":\"111-222\",\"name\":\"김준혁\",\"id\":88,\"email\":\"dfgad@naver.com\",\"group\":\"Hobbies\"}");
     }
 
     @Test
@@ -55,5 +57,6 @@ public class PhoneBookRepositoryTests {
 
         String str = repository.getTextFromObject(phoneBook);
         assertThat(str).isEqualTo("3,김준혁,Schools,010-7524-2352,abcd@naver.com\n");
+
     }
 }
