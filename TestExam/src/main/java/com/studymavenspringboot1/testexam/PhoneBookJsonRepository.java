@@ -38,7 +38,7 @@ public class PhoneBookJsonRepository implements IPhoneBookRepository<IPhoneBook>
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", object.getId());
         jsonObject.put("name", object.getName());
-        jsonObject.put("group", object.getGroup());
+        jsonObject.put("group", object.getGroup().toString());
         jsonObject.put("phoneNumber", object.getPhoneNumber());
         jsonObject.put("email", object.getEmail());
         return jsonObject;
