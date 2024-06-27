@@ -51,7 +51,7 @@ public class PhoneBookServiceImpl implements IPhoneBookService<IPhoneBook> {
         } else {
             return findMaxId(left, mid - 1);
         }
-    } // 더 빨리 찾는 법, 이진탐색, 자바 리스트 스트림
+    }
 
     @Override
     public IPhoneBook findById(Long id) {
