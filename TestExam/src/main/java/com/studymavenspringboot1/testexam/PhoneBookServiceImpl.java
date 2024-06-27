@@ -1,6 +1,5 @@
 package com.studymavenspringboot1.testexam;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,22 +29,48 @@ public class PhoneBookServiceImpl implements IPhoneBookService<IPhoneBook> {
      */
     @Override
     public Long getMaxId() {
-        Long nMax = 0L;
-        for (IPhoneBook obj : this.list) {
-            if (nMax < obj.getId()) {
-                nMax = obj.getId();
-            }
+        if (this.list.isEmpty()) {
+            return 1L;
         }
-        return ++nMax;
+
+        return findMaxId(0, this.list.size() - 1);
     }
+
+    private Long findMaxId(int left, int right) {
+        if (left > right) {
+            return (long) this.list.size() + 1;
+        }
+
+        int mid = (left + right) / 2;
+        Long midId = this.list.get(mid).getId();
+
+        if (mid == this.list.size() - 1 || midId > this.list.get(mid + 1).getId()) {
+            return midId + 1;
+        } else if (midId < this.list.get(mid + 1).getId()) {
+            return findMaxId(mid + 1, right);
+        } else {
+            return findMaxId(left, mid - 1);
+        }
+    } // 더 빨리 찾는 법, 이진탐색, 자바 리스트 스트림
 
     @Override
     public IPhoneBook findById(Long id) {
-        for (IPhoneBook obj : this.list) {
+        int left = 0;
+        int right = this.list.size() - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            IPhoneBook obj = this.list.get(mid);
+
             if (id.equals(obj.getId())) {
                 return obj;
+            } else if (id < obj.getId()) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
             }
         }
+
         return null;
     }
 
@@ -92,11 +117,22 @@ public class PhoneBookServiceImpl implements IPhoneBookService<IPhoneBook> {
     }
 
     private int findIndexById(Long id) {
-        for (int i = 0; i < this.list.size(); i++) {
-            if (id.equals(this.list.get(i).getId())) {
-                return i;
+        int left = 0;
+        int right = this.list.size() - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            Long midId = this.list.get(mid).getId();
+
+            if (id.equals(midId)) {
+                return mid;
+            } else if (id < midId) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
             }
         }
+
         return -1;
     }
 
@@ -145,12 +181,12 @@ public class PhoneBookServiceImpl implements IPhoneBookService<IPhoneBook> {
     }
 
     @Override
-    public void loadData() throws Exception {
-        this.phoneBookRepository.loadData(this.list);
+    public boolean loadData() throws Exception {
+        return this.phoneBookRepository.loadData(this.list);
     }
 
     @Override
-    public void saveData() throws Exception {
-        this.phoneBookRepository.saveData(this.list);
+    public boolean saveData() throws Exception {
+        return this.phoneBookRepository.saveData(this.list);
     }
 }
