@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PhoneBookServiceImpl implements IPhoneBookService<IPhoneBook> {
+public class PhoneBookServiceImple implements IPhoneBookService<IPhoneBook> {
     private List<IPhoneBook> list = new ArrayList<>();
     private final IPhoneBookRepository<IPhoneBook> phoneBookRepository;
 
-    public PhoneBookServiceImpl(String arg1, String fileName) throws Exception {
+    public PhoneBookServiceImple(String arg1, String fileName) throws Exception {
         if ("-j".equals(arg1)) {
             this.phoneBookRepository = new PhoneBookJsonRepository(fileName);
         } else if ("-t".equals(arg1)) {
