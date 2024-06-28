@@ -9,8 +9,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PhoneBookServiceTests {
     @Test
     public void phoneBookServiceImplTest() throws Exception {
-        IPhoneBookService<IPhoneBook> jsonService = new PhoneBookServiceImpl("-j", "test.json");
-        IPhoneBookService<IPhoneBook> textService = new PhoneBookServiceImpl("-t", "test.txt");
+        IPhoneBookService<IPhoneBook> jsonService = new PhoneBookServiceImple("-j", "test.json");
+        IPhoneBookService<IPhoneBook> textService = new PhoneBookServiceImple("-t", "test.txt");
         File jsonFile = new File("test.json");
         File textFile = new File("test.txt");
         jsonFile.delete();
