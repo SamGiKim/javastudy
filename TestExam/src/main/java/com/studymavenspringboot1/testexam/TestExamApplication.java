@@ -14,7 +14,7 @@ public class TestExamApplication {
         boolean run = true;
 
         try {
-            application.setPhoneBookService(new PhoneBookServiceImpl(args[0], args[1]));
+            application.setPhoneBookService(new PhoneBookServiceImple(args[0], args[1]));
         } catch (Exception e) {
             throw new RuntimeException("Error : " + e.getMessage());
         }
@@ -55,7 +55,7 @@ public class TestExamApplication {
                         break;
                 }
             } catch (Exception ex) {
-                System.out.println("!!! 1~9사이의 숫자를 입력해주세요. !!!");
+                System.out.println("!!! 오류가 발생했습니다 다시 시도해주세요 !!!");
             }
         }
     }
