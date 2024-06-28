@@ -64,7 +64,6 @@ public class ConsoleApplication {
                     doWhile = true;
                     System.out.println("Friends(1),Families(2),Schools(3),Jobs(4),Hobbies(5) 숫자는 1~5사이에 입력");
                     break;
-
             }
         } while (doWhile);
         return eGroup;
