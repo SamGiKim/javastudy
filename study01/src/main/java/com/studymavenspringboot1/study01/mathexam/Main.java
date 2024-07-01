@@ -216,4 +216,15 @@ public class Main {
             System.out.println(students[i].name);
         }
     }
+
+    static int f(int n){
+        if(n==0)return 0;
+        return f(n-1)+n;
+    }
+
+    public static void exam1905(){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(f(n));
+    }
 }
