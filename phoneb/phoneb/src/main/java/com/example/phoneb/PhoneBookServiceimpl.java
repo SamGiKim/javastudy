@@ -75,9 +75,8 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook>{
         IPhoneBook find = this.findById(id);
         PhoneBookEntity entity = new PhoneBookEntity();
         if(find != null){
-            entity.copyFields(phoneBook);
-            this.phoneBookJpaRepository.saveAndFlush(entity);
-            return phoneBook;
+            entity.copyFields(find);
+            return this.phoneBookJpaRepository.saveAndFlush(entity);
         }
         return null;
     }
