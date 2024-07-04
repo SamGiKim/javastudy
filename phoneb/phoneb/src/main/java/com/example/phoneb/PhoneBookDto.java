@@ -11,12 +11,8 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="phonebook")
 
 public class PhoneBookDto implements IPhoneBook{
-    @Id
-    @GeneratedValue
     private Long id;
     private String name;
     private String category;
