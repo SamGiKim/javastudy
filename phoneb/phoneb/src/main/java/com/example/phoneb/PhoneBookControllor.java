@@ -17,7 +17,7 @@ public class PhoneBookControllor {
     private static Logger logger = LoggerFactory.getLogger(PhoneBookControllor.class);
 
     @Autowired
-    private IPhoneBookService phoneBookService;
+    private IPhoneBookService<IPhoneBook> phoneBookService;
 
     @PostMapping
     public ResponseEntity<IPhoneBook> insertPB(@RequestBody PhoneBookRequest dto){
@@ -48,6 +48,31 @@ public class PhoneBookControllor {
         }
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable Long id){
+        try {
+            if(id == null){
+                return ResponseEntity.badRequest().build();
+            }
+            boolean result = this.phoneBookService.remove(id);
+            return ResponseEntity.ok(result);
+        } catch (Exception ex){
+            logger.error(ex.toString());
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
-
+    @PatchMapping("/{id}")
+    public ResponseEntity<IPhoneBook> update(@PathVariable Long id, @RequestBody PhoneBookRequest dto){
+        try {
+            if(id == null || dto == null){
+                return ResponseEntity.badRequest().build();
+            }
+            IPhoneBook result =  this.phoneBookService.update(id, dto);
+            return ResponseEntity.badRequest().build();
+        } catch (Exception ex){
+            logger.error(ex.toString());
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }
