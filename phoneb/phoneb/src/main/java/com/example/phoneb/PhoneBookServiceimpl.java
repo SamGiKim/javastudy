@@ -72,6 +72,13 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook>{
 
     @Override
     public IPhoneBook update(Long id, IPhoneBook phoneBook) {
+        IPhoneBook find = this.findById(id);
+        PhoneBookEntity entity = new PhoneBookEntity();
+        if(find != null){
+            entity.copyFields(phoneBook);
+            this.phoneBookJpaRepository.saveAndFlush(entity);
+            return phoneBook;
+        }
         return null;
     }
 
