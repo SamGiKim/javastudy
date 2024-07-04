@@ -1,10 +1,12 @@
 package com.example.phoneb;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -62,6 +64,7 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook>{
     public boolean remove(Long id) {
         IPhoneBook find = this.findById(id);
         if (find != null) {
+            this.phoneBookJpaRepository.deleteById(id);
             return true;
         }
         return false;
@@ -69,7 +72,6 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook>{
 
     @Override
     public IPhoneBook update(Long id, IPhoneBook phoneBook) {
-        IPhoneBook find = this.findById(id);
         return null;
     }
 
