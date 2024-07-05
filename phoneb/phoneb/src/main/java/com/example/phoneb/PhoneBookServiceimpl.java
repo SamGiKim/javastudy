@@ -1,12 +1,10 @@
 package com.example.phoneb;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -27,17 +25,6 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook> {
     }
 
     @Override
-    public IPhoneBook insert(IPhoneBook phoneBook) throws Exception {
-        if (!this.isValidInsert(phoneBook)) {
-            return null;
-        }
-        PhoneBookEntity entity = new PhoneBookEntity();
-        entity.copyFields(phoneBook);
-        IPhoneBook result = this.phoneBookJpaRepository.saveAndFlush(entity);
-        return result;
-    }
-
-    @Override
     public IPhoneBook findById(Long id) {       // for문 바이너리 서치로 바꾸기
         Optional<PhoneBookEntity> find = this.phoneBookJpaRepository.findById(id);
         return find.orElse(null);
@@ -50,6 +37,17 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook> {
             list.add((IPhoneBook) entity);
         }
         return list;
+    }
+
+    @Override
+    public IPhoneBook insert(IPhoneBook phoneBook) throws Exception {
+        if (!this.isValidInsert(phoneBook)) {
+            return null;
+        }
+        PhoneBookEntity entity = new PhoneBookEntity();
+        entity.copyFields(phoneBook);
+        IPhoneBook result = this.phoneBookJpaRepository.saveAndFlush(entity);
+        return result;
     }
 
     @Override
