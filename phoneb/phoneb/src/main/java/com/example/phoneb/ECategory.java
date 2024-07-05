@@ -7,24 +7,24 @@ public enum ECategory {
     Jobs(3),
     Hobbies(4);
 
-    private final Integer val;
+    private final Integer value;
 
-    ECategory(Integer val) {
-        this.val = val;
+    ECategory(Integer value) {
+        this.value = value;
     }
 
-    public Integer getVal() {
-        return this.val;
+    public Integer getValue() {
+        return this.value;
     }
 
     private static final ECategory[] ECategoryArray = ECategory.values();
 
-    public static ECategory integerOf(Integer val) {
+    public static ECategory integerOf(Integer value) {
         for (ECategory item : ECategoryArray) {
-            if (item.getVal() == val) {
+            if (item.getValue() == value) {
                 return item;
             }
         }
-        throw new IllegalArgumentException("ECategory value : " + val);
+        throw new IllegalArgumentException("ECategory value : " + value);
     }
 }
