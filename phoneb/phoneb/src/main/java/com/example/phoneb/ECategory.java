@@ -8,17 +8,20 @@ public enum ECategory {
     Hobbies(4);
 
     private final Integer val;
-    ECategory(Integer val){
-        this.val=val;
+
+    ECategory(Integer val) {
+        this.val = val;
     }
-    public Integer getVal(){
+
+    public Integer getVal() {
         return this.val;
     }
 
     private static final ECategory[] ECategoryArray = ECategory.values();
-    public static ECategory integerOf(Integer val){
-        for(ECategory item : ECategoryArray){
-            if(item.getVal() == val){
+
+    public static ECategory integerOf(Integer val) {
+        for (ECategory item : ECategoryArray) {
+            if (item.getVal() == val) {
                 return item;
             }
         }

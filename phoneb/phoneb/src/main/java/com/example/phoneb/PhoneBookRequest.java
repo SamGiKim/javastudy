@@ -9,23 +9,22 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class PhoneBookRequest implements IPhoneBook{
+public class PhoneBookRequest implements IPhoneBook {
     @JsonIgnore
     private Long id;
 
     @NotBlank
-    @Size(min =2, max=12)
+    @Size(min = 2, max = 12)
     private String name;
 
     @NotBlank
-    @Size(min =4, max=8)
-    private String category;
+    private ECategory category;
 
     @NotBlank
-    @Size(min =0, max=20)
+    @Size(min = 0, max = 20)
     private String phoneNumber;
 
     @NotBlank
-    @Size(min =0, max=200)
+    @Size(min = 0, max = 200)
     private String email;
 }

@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PhonebApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PhonebApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PhonebApplication.class, args);
+    }
 
 }
