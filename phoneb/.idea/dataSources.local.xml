@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-241.17011.79">
+    <data-source name="phonebook_db@localhost" uuid="164d03e7-ce19-4831-a306-91bf377f13cd">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
+      <user-name>phonebook_user</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

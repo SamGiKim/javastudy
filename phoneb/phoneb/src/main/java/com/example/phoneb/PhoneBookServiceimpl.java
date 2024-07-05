@@ -63,22 +63,24 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook>{
     @Override
     public boolean remove(Long id) {
         IPhoneBook find = this.findById(id);
-        if (find != null) {
-            this.phoneBookJpaRepository.deleteById(id);
-            return true;
+        if (find == null) {
+            return false;
         }
-        return false;
+        this.phoneBookJpaRepository.deleteById(id);
+        return true;
     }
 
     @Override
     public IPhoneBook update(Long id, IPhoneBook phoneBook) {
         IPhoneBook find = this.findById(id);
-        PhoneBookEntity entity = new PhoneBookEntity();
-        if(find != null){
-            entity.copyFields(find);
-            return this.phoneBookJpaRepository.saveAndFlush(entity);
+        if(find == null){
+            return null;
         }
-        return null;
+        PhoneBookEntity entity = PhoneBookEntity.builder()
+                .id(id).name(find.getName()).category(find.getCategory())
+                .phoneNumber(find.getPhoneNumber()).build();
+        entity.copyFields(phoneBook);
+        return this.phoneBookJpaRepository.saveAndFlush(entity);
     }
 
     @Override
@@ -86,25 +88,38 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook>{
         if (findName == null || findName.isEmpty()) {
             return new ArrayList<>();
         }
-
-        return new ArrayList<>();
+        List<PhoneBookEntity> list = this.phoneBookJpaRepository.findAllByNameContains(findName);
+        List<IPhoneBook> result = new ArrayList<>();
+        for( PhoneBookEntity item : list){
+            result.add((IPhoneBook) item);
+        }
+        return result;
     }
 
     @Override
-    public List<IPhoneBook> getListFromGroup(ECategory category) {
-        if (category == null) {
+    public List<IPhoneBook> getListFromCategory(ECategory category) {
+        if (category == null ) {
             return new ArrayList<>();
         }
-        return new ArrayList<>();
+        List<PhoneBookEntity> list = this.phoneBookJpaRepository.findAllByCategoryContains(category);
+        List<IPhoneBook> result = new ArrayList<>();
+        for( PhoneBookEntity item : list){
+            result.add((IPhoneBook) item);
+        }
+        return result;
     }
 
     @Override
-    public List<IPhoneBook> getListFromPhoneNumber(String findPhone) {
-        if (findPhone == null || findPhone.isEmpty()) {
+    public List<IPhoneBook> getListFromPhoneNumber(String findPhoneNumber) {
+        if (findPhoneNumber == null || findPhoneNumber.isEmpty()) {
             return new ArrayList<>();
         }
-
-        return new ArrayList<>();
+        List<PhoneBookEntity> list = this.phoneBookJpaRepository.findAllByPhoneNumberContains(findPhoneNumber);
+        List<IPhoneBook> result = new ArrayList<>();
+        for( PhoneBookEntity item : list){
+            result.add((IPhoneBook) item);
+        }
+        return result;
     }
 
     @Override
@@ -112,8 +127,12 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook>{
         if (findEmail == null || findEmail.isEmpty()) {
             return new ArrayList<>();
         }
-
-        return new ArrayList<>();
+        List<PhoneBookEntity> list = this.phoneBookJpaRepository.findAllByEmailContains(findEmail);
+        List<IPhoneBook> result = new ArrayList<>();
+        for( PhoneBookEntity item : list){
+            result.add((IPhoneBook) item);
+        }
+        return result;
     }
 
 }
