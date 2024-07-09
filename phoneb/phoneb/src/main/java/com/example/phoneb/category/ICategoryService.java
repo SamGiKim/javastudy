@@ -1,19 +1,13 @@
 package com.example.phoneb.category;
-
 import java.util.List;
 
-public interface ICategoryService<T> {
-    T findById(Long id);
-
-    List<T> getAllList();
-
-    ICategory insert(String name) throws Exception;
-
-    ICategory insert(T category) throws Exception;
-
+public interface ICategoryService {
+    ICategory findById(Long id);
+    ICategory findByName(String name);
+    List<ICategory> getAllList();
+    ICategory insert(ICategory category) throws Exception;
     boolean remove(Long id) throws Exception;
-
-    ICategory update(Long id, T categoey) throws Exception;
-
-    List<T> getListFromName(String findName);
+    ICategory update(Long id, ICategory category) throws Exception;
+    List<ICategory> findAllByNameContains(String name);
+    List<ICategory> getListFromName(String findName);
 }

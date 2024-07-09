@@ -1,5 +1,7 @@
 package com.example.phoneb.phonebook;
 
+import com.example.phoneb.category.CategoryEntity;
+import com.example.phoneb.category.ICategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,19 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook> {
         return true;
     }
 
+    // 매개변수 phoneBook에는 IPhoneBook 상속받은 어떤 클래스가 올지 모름
+    // 결국 PhoneBookEntity 클래스로 돌아옴 돌고 돌려고 인터페이스를 사용..
+    @Override
+    public IPhoneBook insert(IPhoneBook phoneBook) throws Exception {
+        if (!this.isValidInsert(phoneBook)) {
+            return null;
+        }
+        PhoneBookEntity entity = new PhoneBookEntity();
+        entity.copyFields(phoneBook);
+        IPhoneBook result = this.phoneBookJpaRepository.saveAndFlush(entity);
+        return result;
+    }
+
     @Override
     public IPhoneBook findById(Long id) {       // for문 바이너리 서치로 바꾸기
         Optional<PhoneBookEntity> find = this.phoneBookJpaRepository.findById(id);
@@ -37,26 +52,6 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook> {
             list.add((IPhoneBook) entity);
         }
         return list;
-    }
-
-    @Override
-    public IPhoneBook insert(IPhoneBook phoneBook) throws Exception {
-        if (!this.isValidInsert(phoneBook)) {
-            return null;
-        }
-        PhoneBookEntity entity = new PhoneBookEntity();
-        entity.copyFields(phoneBook);
-        IPhoneBook result = this.phoneBookJpaRepository.saveAndFlush(entity);
-        return result;
-    }
-
-    @Override
-    public IPhoneBook insert(String name, ECategory category, String phoneNumber, String email) throws Exception {
-        PhoneBookDto phoneBook = PhoneBookDto.builder()
-                .id(0L)
-                .name(name).category(category)
-                .phoneNumber(phoneNumber).email(email).build();
-        return this.insert(phoneBook);
     }
 
     @Override
@@ -75,11 +70,9 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook> {
         if (find == null) {
             return null;
         }
-        PhoneBookEntity entity = PhoneBookEntity.builder()
-                .id(id).name(find.getName()).category(find.getCategory())
-                .phoneNumber(find.getPhoneNumber()).build();
-        entity.copyFields(phoneBook);
-        return this.phoneBookJpaRepository.saveAndFlush(entity);
+        find.copyFields(phoneBook);
+        PhoneBookEntity result = this.phoneBookJpaRepository.saveAndFlush((PhoneBookEntity) find);
+        return result;
     }
 
     @Override
@@ -88,18 +81,19 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook> {
             return new ArrayList<>();
         }
         List<PhoneBookEntity> list = this.phoneBookJpaRepository.findAllByNameContains(findName);
-        List<IPhoneBook> result = list.stream()
-                .map(item -> (IPhoneBook) item)
-                .toList();
+        List<IPhoneBook> result = new ArrayList<>();
+        for(PhoneBookEntity item : list){
+            result.add((IPhoneBook) item);
+        }
         return result;
     }
 
     @Override
-    public List<IPhoneBook> getListFromCategory(ECategory category) {
+    public List<IPhoneBook> getListFromCategory(ICategory category) {
         if (category == null) {
             return new ArrayList<>();
         }
-        List<PhoneBookEntity> list = this.phoneBookJpaRepository.findAllByCategory(category);
+        List<PhoneBookEntity> list = this.phoneBookJpaRepository.findAllByCategory((CategoryEntity) category);
         List<IPhoneBook> result = list.stream()
                 .map(item -> (IPhoneBook) item)
                 .toList();
@@ -129,5 +123,4 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook> {
                 .collect(Collectors.toUnmodifiableList());
         return result;
     }
-
 }

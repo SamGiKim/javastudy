@@ -1,5 +1,9 @@
+//Entity 와 JpaRepository 만 있어도 db 연결
+
 package com.example.phoneb.phonebook;
 
+import com.example.phoneb.category.CategoryEntity;
+import com.example.phoneb.category.ICategory;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -9,11 +13,11 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "phoneBook_tb1")
+@Entity //엔티티 클래스는 데이터베이스 테이블의 구조를 반영
+@Table(name = "phoneBook_tbl")
 public class PhoneBookEntity implements IPhoneBook {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)     // id 필드의 값을 db에 자동으로 1씩 증가
     private Long id;
 
     @NotNull
@@ -21,7 +25,9 @@ public class PhoneBookEntity implements IPhoneBook {
     private String name;
 
     @NotNull
-    private ECategory category;
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    private CategoryEntity category;
 
     @NotNull
     @Column(length = 20)
@@ -32,6 +38,18 @@ public class PhoneBookEntity implements IPhoneBook {
 
     @Override
     public String toString() {
-        return String.format("ID:%6d, 이름:%s, 분류:%s, 번호:%s, 이메일:%s}", this.id, this.name, this.category, this.phoneNumber, this.email);
+        return String.format("ID:%6d, 이름:%s, 분류:%s, 번호:%s, 이메일:%s}"
+                , this.id, this.name, this.category, this.phoneNumber, this.email);
+    }
+
+    @Override
+    public void setCategory(ICategory category) {
+        if(category == null){
+            return;
+        }
+        CategoryEntity entity = new CategoryEntity();
+        entity.copyFields(category);
+        this.category = entity;
+
     }
 }

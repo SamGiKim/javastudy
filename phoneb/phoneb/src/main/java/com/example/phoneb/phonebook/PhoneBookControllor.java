@@ -1,5 +1,7 @@
 package com.example.phoneb.phonebook;
 
+import com.example.phoneb.category.CategoryDto;
+import com.example.phoneb.category.CategoryEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +20,7 @@ public class PhoneBookControllor {
 
     @Autowired
     private IPhoneBookService<IPhoneBook> phoneBookService;
+
 
     @PostMapping
     public ResponseEntity<IPhoneBook> insertPB(@RequestBody PhoneBookRequest dto) {
@@ -96,7 +99,7 @@ public class PhoneBookControllor {
         }
     }
 
-    @GetMapping("/fn/{name}")
+    @GetMapping("/name:{name}")
     public ResponseEntity<List<IPhoneBook>> findAllByName(@PathVariable String name) {
         try {
             if (name == null || name.isEmpty()) {
@@ -113,13 +116,14 @@ public class PhoneBookControllor {
         }
     }
 
-    @GetMapping("/fg/{category}")
-    public ResponseEntity<List<IPhoneBook>> findAllByCategoryContains(@PathVariable Integer category) {
+    @GetMapping("/group:{category}")
+    public ResponseEntity<List<IPhoneBook>> findAllByCategory(@PathVariable Integer category) {
         try {
             if (category == null) {
                 return ResponseEntity.badRequest().build();
             }
-            List<IPhoneBook> result = this.phoneBookService.getListFromCategory(ECategory.integerOf(category));
+            CategoryEntity categoryEntity = CategoryEntity.builder().id(Long.parseLong(category.toString())).build();
+            List<IPhoneBook> result = this.phoneBookService.getListFromCategory(categoryEntity);
             if (result == null || result.size() <= 0) {
                 return ResponseEntity.notFound().build();
             }
@@ -130,7 +134,7 @@ public class PhoneBookControllor {
         }
     }
 
-    @GetMapping("/fp/{phoneNumber}")
+    @GetMapping("/phone:{phoneNumber}")
     public ResponseEntity<List<IPhoneBook>> findAllByPhoneNumber(@PathVariable String phoneNumber) {
         try {
             if (phoneNumber == null || phoneNumber.isEmpty()) {
@@ -147,7 +151,7 @@ public class PhoneBookControllor {
         }
     }
 
-    @GetMapping("/fe/{email}")
+    @GetMapping("/email:{email}")
     public ResponseEntity<List<IPhoneBook>> findAllByEmail(@PathVariable String email) {
         try {
             if (email == null || email.isEmpty()) {

@@ -1,13 +1,19 @@
 package com.example.phoneb.category;
-
 import java.io.Serializable;
+
+// Serializable
+// 객체의 상태를 바이트 스트림으로 변환하여 데이터베이스에 저장
+
 
 public interface ICategory extends Serializable {
     Long getId();
     void setId(Long id);
+
     String getName();
     void setName(String name);
 
+
+    // 필드값 복사하는 메소드
     default void copyFields(ICategory from) {
         if (from == null) {
             return;
