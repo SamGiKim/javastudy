@@ -1,4 +1,4 @@
-package CategoryPractice;
+package com.example.phoneb.category;
 
 import lombok.*;
 

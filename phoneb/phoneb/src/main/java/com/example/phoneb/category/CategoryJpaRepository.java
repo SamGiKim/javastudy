@@ -1,6 +1,5 @@
-package CategoryPractice;
+package com.example.phoneb.category;
 
-import com.example.phoneb.PhoneBookEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

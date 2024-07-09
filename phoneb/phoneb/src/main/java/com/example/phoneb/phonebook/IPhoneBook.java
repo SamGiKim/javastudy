@@ -1,4 +1,4 @@
-package com.example.phoneb;
+package com.example.phoneb.phonebook;
 
 import java.io.Serializable;
 

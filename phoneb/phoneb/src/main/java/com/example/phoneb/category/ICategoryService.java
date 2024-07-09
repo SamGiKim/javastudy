@@ -1,6 +1,4 @@
-package CategoryPractice;
-
-import com.example.phoneb.IPhoneBook;
+package com.example.phoneb.category;
 
 import java.util.List;
 

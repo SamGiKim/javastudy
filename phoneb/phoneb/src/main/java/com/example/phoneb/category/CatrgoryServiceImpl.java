@@ -1,7 +1,6 @@
-package CategoryPractice;
+package com.example.phoneb.category;
 
-import com.example.phoneb.IPhoneBook;
-import com.example.phoneb.PhoneBookEntity;
+import com.example.phoneb.phonebook.IPhoneBook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

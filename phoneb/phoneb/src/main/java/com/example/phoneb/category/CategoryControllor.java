@@ -1,7 +1,7 @@
-package CategoryPractice;
+package com.example.phoneb.category;
 
-import com.example.phoneb.IPhoneBookService;
-import com.example.phoneb.PhoneBookControllor;
+import com.example.phoneb.phonebook.IPhoneBookService;
+import com.example.phoneb.phonebook.PhoneBookControllor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.example.phoneb;
+package com.example.phoneb.phonebook;
 
 public enum ECategory {
     Friends(0),

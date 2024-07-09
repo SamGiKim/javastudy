@@ -1,5 +1,7 @@
-package com.example.phoneb;
+package com.example.phoneb.phonebook;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter
@@ -7,12 +9,25 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class PhoneBookDto implements IPhoneBook {
+@Entity
+@Table(name = "phoneBook_tb1")
+public class PhoneBookEntity implements IPhoneBook {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Column(length = 50, unique = true)
     private String name;
+
+    @NotNull
     private ECategory category;
+
+    @NotNull
+    @Column(length = 20)
     private String phoneNumber;
+
+    @Column(length = 200)
     private String email;
 
     @Override

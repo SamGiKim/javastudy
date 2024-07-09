@@ -1,6 +1,5 @@
-package com.example.phoneb;
+package com.example.phoneb.phonebook;
 
-import jakarta.validation.constraints.NotNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

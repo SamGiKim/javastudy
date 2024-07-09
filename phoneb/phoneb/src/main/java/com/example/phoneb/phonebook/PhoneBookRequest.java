@@ -1,4 +1,4 @@
-package com.example.phoneb;
+package com.example.phoneb.phonebook;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package CategoryPractice;
+package com.example.phoneb.category;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
