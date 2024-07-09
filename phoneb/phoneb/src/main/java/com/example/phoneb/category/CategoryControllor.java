@@ -17,15 +17,15 @@ import java.util.List;
 
 public class CategoryControllor {
 
-    private static Logger logger = LoggerFactory.getLogger(PhoneBookControllor.class);
+    private static Logger logger = LoggerFactory.getLogger(CategoryControllor.class);
 
     @Autowired
-    private IPhoneBookService<ICategory> phoneBookService;
+    private ICategoryService<ICategory> iCategoryService;
 
     @GetMapping
     public ResponseEntity<List<ICategory>> getAll() {
         try {
-            List<ICategory> result = this.phoneBookService.getAllList();
+            List<ICategory> result = this.iCategoryService.getAllList();
             return ResponseEntity.ok(result);
         } catch (Exception ex) {
             logger.error(ex.toString());
@@ -39,7 +39,7 @@ public class CategoryControllor {
             if (id == null) {
                 return ResponseEntity.badRequest().build();
             }
-            boolean result = this.phoneBookService.remove(id);
+            boolean result = this.iCategoryService.remove(id);
             return ResponseEntity.ok(result);
         } catch (Exception ex) {
             logger.error(ex.toString());
@@ -53,7 +53,7 @@ public class CategoryControllor {
             if (id == null || id <= 0) {
                 return ResponseEntity.badRequest().build();
             }
-            ICategory result = this.phoneBookService.findById(id);
+            ICategory result = this.iCategoryService.findById(id);
             if (result == null) {
                 return ResponseEntity.notFound().build();
             }
@@ -70,7 +70,7 @@ public class CategoryControllor {
             if (name == null || name.isEmpty()) {
                 return ResponseEntity.badRequest().build();
             }
-            List<ICategory> result = this.phoneBookService.getListFromName(name);
+            List<ICategory> result = this.iCategoryService.getListFromName(name);
             if (result == null || result.size() <= 0) {
                 return ResponseEntity.notFound().build();
             }
