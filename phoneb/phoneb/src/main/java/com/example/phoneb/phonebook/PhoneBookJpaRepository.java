@@ -1,7 +1,6 @@
 package com.example.phoneb.phonebook;
 
 import com.example.phoneb.category.CategoryEntity;
-import com.example.phoneb.category.ICategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

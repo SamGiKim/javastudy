@@ -1,6 +1,5 @@
 package com.example.phoneb.phonebook;
 
-import com.example.phoneb.category.CategoryDto;
 import com.example.phoneb.category.CategoryEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
