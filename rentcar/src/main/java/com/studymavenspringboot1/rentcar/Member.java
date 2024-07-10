@@ -1,4 +1,4 @@
-package com.studymavenspringboot1.rentcar.model;
+package com.studymavenspringboot1.rentcar;
 
 public class Member {
     private Long Id;

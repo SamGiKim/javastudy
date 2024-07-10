@@ -1,11 +1,14 @@
-package com.studymavenspringboot1.rentcar.model;
+package com.studymavenspringboot1.rentcar;
 
-public interface Vehicle {
+import com.studymavenspringboot1.rentcar.vehicletype.VehicleStatus;
+import com.studymavenspringboot1.rentcar.vehicletype.IVehicleType;
+
+public interface IVehicle {
     public Long getId();
     public String getCompany();
     public String getModel();
     public int getMakeYear();
-    public VehicleType getType();
+    public IVehicleType getType();
     public String getColor();
     public int getTotalKm();
     public String getFactoryNumber();
@@ -15,7 +18,7 @@ public interface Vehicle {
     public String setCompany(String company);
     public String setModel(String model);
     public int setMakeYear(int makeYear);
-    public VehicleType setType(VehicleType type);
+    public IVehicleType setType(IVehicleType type);
     public String setColor(String color);
     public int setTotalKm(int totlaKm);
     public String setFactoryNumber(String factoryNumber);

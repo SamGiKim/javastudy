@@ -1,15 +1,17 @@
-package com.studymavenspringboot1.rentcar.model;
+package com.studymavenspringboot1.rentcar;
 
+import com.studymavenspringboot1.rentcar.vehicletype.VehicleStatus;
+import com.studymavenspringboot1.rentcar.vehicletype.IVehicleType;
 import lombok.Getter;
 
 @Getter
 
-public class MotorCycle implements Vehicle {
+public class Car implements IVehicle {
     private Long id;
     private String company;
     private String model;
     private int makeYear;
-    private VehicleType type;
+    private IVehicleType type;
     private String color;
     private int totalKm;
     private String factoryNumber;
@@ -37,7 +39,7 @@ public class MotorCycle implements Vehicle {
     }
 
     @Override
-    public VehicleType setType(VehicleType type) {
+    public IVehicleType setType(IVehicleType type) {
         return null;
     }
 
