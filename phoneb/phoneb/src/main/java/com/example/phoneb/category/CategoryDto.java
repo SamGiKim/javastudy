@@ -1,5 +1,6 @@
 package com.example.phoneb.category;
 
+import com.example.phoneb.phonebook.IPhoneBook;
 import lombok.*;
 
 @Getter
@@ -7,7 +8,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDto {
+public class CategoryDto implements ICategory {
     private Long id;
     private String name;
 
