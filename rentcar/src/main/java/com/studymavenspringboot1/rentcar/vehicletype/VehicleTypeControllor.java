@@ -15,7 +15,7 @@ import java.util.List;
 public class VehicleTypeControllor {
     private static Logger logger = LoggerFactory.getLogger(VehicleTypeControllor.class);
 
-    @Autowired(required = false)
+    @Autowired
     private IVehicleTypeService vehicleTypeService;
 
     @PostMapping
