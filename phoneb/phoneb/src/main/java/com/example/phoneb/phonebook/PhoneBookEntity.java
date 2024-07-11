@@ -26,7 +26,7 @@ public class PhoneBookEntity implements IPhoneBook {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name="category_id")
+    @JoinColumn(name = "category_id")
     private CategoryEntity category;
 
     @NotNull
@@ -44,7 +44,7 @@ public class PhoneBookEntity implements IPhoneBook {
 
     @Override
     public void setCategory(ICategory category) {
-        if(category == null){
+        if (category == null) {
             return;
         }
         CategoryEntity entity = new CategoryEntity();

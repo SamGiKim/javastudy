@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoryServiceImpl implements ICategoryService{
+public class CategoryServiceImpl implements ICategoryService {
     @Autowired
     private CategoryJpaRepository categoryJpaRepository;
 
@@ -23,7 +23,7 @@ public class CategoryServiceImpl implements ICategoryService{
 
     @Override
     public ICategory findById(Long id) {
-        if( id == null || id <= 0){
+        if (id == null || id <= 0) {
             return null;
         }
         Optional<CategoryEntity> find = this.categoryJpaRepository.findById(id);
@@ -42,11 +42,11 @@ public class CategoryServiceImpl implements ICategoryService{
     }
 
     private List<ICategory> getICategoryList(List<CategoryEntity> list) {
-        if(list == null || list.size() <= 0){
+        if (list == null || list.size() <= 0) {
             return new ArrayList<>();
         }
         return list.stream()
-                .map(entity -> (ICategory)entity)
+                .map(entity -> (ICategory) entity)
                 .toList();
     }
 
@@ -85,7 +85,7 @@ public class CategoryServiceImpl implements ICategoryService{
 
     @Override
     public List<ICategory> findAllByNameContains(String name) {
-        if(name == null || name.isEmpty()){
+        if (name == null || name.isEmpty()) {
             return new ArrayList<>();
         }
         return this.getICategoryList(
@@ -100,7 +100,7 @@ public class CategoryServiceImpl implements ICategoryService{
         }
         List<CategoryEntity> list = this.categoryJpaRepository.findAllByNameContains(findName);
         List<ICategory> result = new ArrayList<>();
-        for(CategoryEntity item : list){
+        for (CategoryEntity item : list) {
             result.add((ICategory) item);
         }
         return result;

@@ -2,7 +2,6 @@ package com.example.phoneb.phonebook;
 
 import com.example.phoneb.category.CategoryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 
 // JpaRepository를 확장하여 기본적인 CRUD(Create, Read, Update, Delete)기능을 제공
@@ -14,7 +13,10 @@ import java.util.List;
 
 public interface PhoneBookJpaRepository extends JpaRepository<PhoneBookEntity, Long> {
     List<PhoneBookEntity> findAllByNameContains(String name);
+
     List<PhoneBookEntity> findAllByCategory(CategoryEntity category);
+
     List<PhoneBookEntity> findAllByPhoneNumberContains(String phoneNumber);
+
     List<PhoneBookEntity> findAllByEmailContains(String email);
 }

@@ -20,7 +20,6 @@ public class PhoneBookControllor {
     @Autowired
     private IPhoneBookService<IPhoneBook> phoneBookService;
 
-
     @PostMapping
     public ResponseEntity<IPhoneBook> insertPB(@RequestBody PhoneBookRequest dto) {
         try {

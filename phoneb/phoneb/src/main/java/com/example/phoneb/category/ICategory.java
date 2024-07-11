@@ -1,4 +1,5 @@
 package com.example.phoneb.category;
+
 import java.io.Serializable;
 
 // Serializable
@@ -7,9 +8,11 @@ import java.io.Serializable;
 
 public interface ICategory extends Serializable {
     Long getId();
+
     void setId(Long id);
 
     String getName();
+
     void setName(String name);
 
 

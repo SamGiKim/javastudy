@@ -4,7 +4,6 @@ import com.example.phoneb.category.CategoryEntity;
 import com.example.phoneb.category.ICategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -82,7 +81,7 @@ public class PhoneBookServiceimpl implements IPhoneBookService<IPhoneBook> {
         }
         List<PhoneBookEntity> list = this.phoneBookJpaRepository.findAllByNameContains(findName);
         List<IPhoneBook> result = new ArrayList<>();
-        for(PhoneBookEntity item : list){
+        for (PhoneBookEntity item : list) {
             result.add((IPhoneBook) item);
         }
         return result;

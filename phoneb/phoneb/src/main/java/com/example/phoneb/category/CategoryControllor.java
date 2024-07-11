@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/ct")
 
-
 public class CategoryControllor {
     private static Logger logger = LoggerFactory.getLogger(CategoryControllor.class);
 
@@ -21,17 +20,17 @@ public class CategoryControllor {
     private ICategoryService categoryService;
 
     @PostMapping
-    public ResponseEntity<ICategory> insertC(@RequestBody CategoryRequest dto){
-        try{
-            if (dto==null) {
+    public ResponseEntity<ICategory> insertC(@RequestBody CategoryRequest dto) {
+        try {
+            if (dto == null) {
                 return ResponseEntity.badRequest().build();
             }
             ICategory result = this.categoryService.insert(dto);
-            if(result == null){
+            if (result == null) {
                 return ResponseEntity.badRequest().build();
             }
             return ResponseEntity.ok(result);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             logger.error(ex.toString());
             return ResponseEntity.badRequest().build();
         }

@@ -6,18 +6,23 @@ import java.io.Serializable;
 
 public interface IPhoneBook extends Serializable {
     Long getId();
+
     void setId(Long id);
 
     String getName();
+
     void setName(String name);
 
     ICategory getCategory();
+
     void setCategory(ICategory category);
 
     String getPhoneNumber();
+
     void setPhoneNumber(String phoneNumber);
 
     String getEmail();
+
     void setEmail(String email);
 
     default void copyFields(IPhoneBook from) {

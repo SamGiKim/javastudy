@@ -10,8 +10,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="category_tbl")
-public class CategoryEntity implements ICategory{
+@Table(name = "category_tbl")
+public class CategoryEntity implements ICategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

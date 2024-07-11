@@ -8,11 +8,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CategoryRequest implements ICategory{
+public class CategoryRequest implements ICategory {
     @JsonIgnore
     private Long id;
 
     @NotNull
-    @Size(min=2, max = 12)
+    @Size(min = 2, max = 12)
     private String name;
 }
